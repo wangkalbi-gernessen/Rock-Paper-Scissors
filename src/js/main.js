@@ -29,7 +29,7 @@ $(document).ready(function(){
             result += " wins!"
             winner[1]++;
         }
-        $('#score').innerHTML = `Player 1 ${winner[0]} Player 2 ${winner[1]}`
+        $('#score').innerHTML = `Player 1 ${winner[0]} Player`
     }
 
     function checkWinner(pl, co) {
