@@ -6,18 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js">
+    </script>
     <script src="../js/main.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="bg-white">
-        <div class="pt-6">
+    <div class=" bg-slate-200 p-5">
+        <div class="container mx-auto p-5 bg-white rounded-lg min-h-[100vh] text-center">
+            <div class="font-[700] text-3xl font-mono">Rock Paper Scissors</div>
+            <!-- Score board -->
+            <div class="flex py-4 font-bold text-xl even:bg-gray-100 odd:bg-green">
+                <div class="basis-1/2">You</div>
+                <div class="basis-1/4">1 - 0</div>
+                <div class="basis-1/2">Computer</div>
+            </div>
+            <div id="match_area" class="flex flex-row py-4 justify-evenly font-bold text-xl">
+                <!-- Player  -->
+                <div id="player" class="basis-1/2">
+                    <img src="../images/rock.svg" alt="" class="object-cover">
+                </div>
+                <!-- Computer -->
+                <div id="computer" class="basis-1/2">
+                    <img src="../images/scissors.svg" alt="" class="object-cover">
+                </div>
+            </div>
             <div id="score" >sss</div>
-            <p class="text-blue-600/100">Kaiser</p>
-            <div id="message">sss</div>
-            <button class="bg-indigo-500">Rock</button>
-            <button class="bg-indigo-500">Paper</button>
-            <button class="bg-indigo-500">Scissors</button>
+            <div id="message" class="pt-4">sss</div>
+
+            <div class="text-center text-xl pt-4">Select one!</div>
+            <!-- Select rock, paper or scissors -->
+            <div class="flex justify-evenly py-4">
+                <!-- Rock button -->
+                <button><img src="../images/rock.svg" alt="Rock" class="object-cover"></button>
+                <!-- Paper button -->
+                <button><img src="../images/paper.svg" alt="Paper" class="object-cover"></button>
+                <!-- Scissors button -->
+                <button><img src="../images/scissors.svg" alt="Scissors" class="object-cover border-2 rounded-full"></button>
+            </div>
         </div>
     </div>
 </body>

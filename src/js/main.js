@@ -1,14 +1,26 @@
 $(document).ready(function(){
     let winner = [0, 0]
-    
-    $('button').each(function(key, obj) {
-        $(obj).click(function(){
-            playGame(obj);
-        });
-    });
 
-    function playGame(obj) {
-        let playerSelection = obj.innerText
+    
+    
+    $('button').hover(
+        function() {
+            $(this).effect("shake", {direction: "up", times: 3, distance: 1}, 500);
+        },
+        function() {
+            $(this).stop()
+        }
+    ),
+    $('button').each(function(key, obj) {
+        console.log(obj)
+        $(obj).click(function() {
+            let card = $(this).find('img').attr('alt');
+            playGame(card);
+        })
+    })
+
+    function playGame(card) {
+        let playerSelection = card
         let computerSelection = Math.random();
         console.log(computerSelection)
         if (computerSelection < 0.3) {
