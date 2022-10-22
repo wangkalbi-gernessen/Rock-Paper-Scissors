@@ -14,12 +14,13 @@
 <body>
     <div class=" bg-slate-200 p-5">
         <div class="container mx-auto p-5 bg-white rounded-lg min-h-[100vh] text-center">
-            <div class="font-[700] text-3xl font-mono">Rock Paper Scissors</div>
+            <!-- App title -->
+            <div class="font-[700] text-3xl font-mono mb-4">Rock Paper Scissors</div>
             <!-- Score board -->
-            <div class="flex py-4 font-bold text-xl even:bg-gray-100 odd:bg-green">
-                <div class="basis-1/2">You</div>
-                <div class="basis-1/4">1 - 0</div>
-                <div class="basis-1/2">Computer</div>
+            <div class="flex font-bold text-xl py-4 leading-loose">
+                <div class="basis-1/2 bg-gray-100">You</div>
+                <div class="basis-1/4 bg-black text-white">1 - 0</div>
+                <div class="basis-1/2 bg-gray-100">Computer</div>
             </div>
             <div id="match_area" class="flex flex-row py-4 justify-evenly font-bold text-xl">
                 <!-- Player  -->
@@ -31,10 +32,10 @@
                     <img src="../images/scissors.svg" alt="" class="object-cover">
                 </div>
             </div>
-            <div id="score" >sss</div>
-            <div id="message" class="pt-4">sss</div>
+            <div id="score" ></div>
+            <div id="message" class="pt-4"></div>
 
-            <div class="text-center text-xl pt-4">Select one!</div>
+            <div class="text-center text-2xl pt-4">Select one!</div>
             <!-- Select rock, paper or scissors -->
             <div class="flex justify-evenly py-4">
                 <!-- Rock button -->

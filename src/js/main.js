@@ -1,7 +1,7 @@
 $(document).ready(function(){
     let winner = [0, 0]
 
-    
+        
     
     $('button').hover(
         function() {
