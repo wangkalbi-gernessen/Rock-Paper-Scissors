@@ -13,7 +13,7 @@
 </head>
 <body>
     <div class=" bg-slate-200 p-5">
-        <div class="container mx-auto p-5 bg-white rounded-lg min-h-[94vh] text-center">
+        <div class="container mx-auto p-5 bg-white rounded-lg min-h-[100vh] text-center">
             <!-- App title -->
             <div class="font-[700] text-3xl font-mono mb-4">Rock Paper Scissors</div>
             <!-- Score board -->
@@ -37,14 +37,17 @@
 
             <div class="text-center text-2xl pt-4">Select one!</div>
             <!-- Select rock, paper or scissors -->
-            <div class="flex justify-evenly py-4">
+            <div class="flex justify-between py-4">
                 <!-- Rock button -->
-                <button><img src="../images/rock.svg" alt="Rock" class="w-12 h-12"></button>
+                <button class="ring-offset-3 ring-offset-black ring-4 p-3  cursor-pointer"><img src="../images/rock.svg" alt="Rock" class="w-12 h-12"></button>
                 <!-- Paper button -->
-                <button><img src="../images/paper.svg" alt="Paper" class="w-12 h-12"></button>
+                <button class="border-solid border-2 border-indigo-600 rounded-full p-3  cursor-pointer"><img src="../images/paper.svg" alt="Paper" class="w-12 h-12"></button>
                 <!-- Scissors button -->
-                <button><img src="../images/scissors.svg" alt="Scissors" class="w-12 h-12"></button>
+                <button class="border-solid border-2 border-indigo-600 rounded-full p-3  cursor-pointer"><img src="../images/scissors.svg" alt="Scissors" class="w-12 h-12"></button>
             </div>
+            <!-- <div id="dialog">
+                <p>You are win</p>
+            </div> -->
         </div>
     </div>
 </body>

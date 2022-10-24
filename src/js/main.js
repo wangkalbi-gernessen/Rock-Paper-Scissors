@@ -2,7 +2,6 @@ $(document).ready(function(){
     let playerInterval;
     let playerPoints = 0
     let computerPoints = 0
-    let computerSelection;
     
     // FadeIn and FadeOut animation of images for player and computer on screen
     let playerPic = $('#player').find('img');
@@ -23,15 +22,15 @@ $(document).ready(function(){
     playerInterval = setInterval(function () {
         i = (i + 1) % playerImages.length;
         v = (v + 1) % computerImages.length;
-        playerPic.fadeOut(550, function () {
+        playerPic.fadeOut(100, 'linear', function () {
             $(this).attr("src", playerImages[i]);
-            $(this).fadeIn(1000);
+            $(this).fadeIn(100);
         });
-        computerPic.fadeOut(550, function () {
+        computerPic.fadeOut(100, 'linear',  function () {
             $(this).attr("src", computerImages[i]);
-            $(this).fadeIn(1000);
+            $(this).fadeIn(100);
         });
-    }, 5000);
+    }, 1000);
     
     $('button').hover(
         function() {
@@ -52,16 +51,15 @@ $(document).ready(function(){
         let playerSelection = card
 
         let computerSelection = Math.random();
-        console.log(computerSelection)
         if (computerSelection < 0.3) {
             computerSelection = "Rock" 
         } else if (computerSelection < 0.6) {
             computerSelection = "Paper" 
         } else {
-            computerSelection = "Scrissors" 
+            computerSelection = "Scissors" 
         }
 
-        showPlayerDraw(playerSelection, computerImages)
+        showPlayerDraw(playerSelection, computerSelection)
 
         let result = checkWinner(playerSelection, computerSelection)
         console.log(result)
@@ -75,6 +73,10 @@ $(document).ready(function(){
 
         if (playerPoints === 5 || computerPoints === 5) {
             console.log("winner!!!")
+            // show up pop here
+            $("#dialog").dialog({
+                modal: true
+            });
             location.reload(true);
         }
     }
@@ -108,25 +110,24 @@ $(document).ready(function(){
 
     // Stop animation and show player's draw
     function showPlayerDraw(playerSelection, computerSelection) {
-        let playerPic = $('#player').find('img');
         playerPic.attr('src', `../images/${playerSelection}.svg`);
         let computerPic = $('#computer').find('img');
-        computerPic.attr('src', `../images/${playerSelection}.svg`);
+        computerPic.attr('src', `../images/${computerSelection}.svg`);
+        
         clearInterval(playerInterval)
-
         setTimeout(function() {
             playerInterval = setInterval(function () {
                 i = (i + 1) % playerImages.length;
                 v = (v + 1) % computerImages.length;
-                playerPic.fadeOut(550, function () {
+                playerPic.fadeOut(100, 'linear', function () {
                     $(this).attr("src", playerImages[i]);
-                    $(this).fadeIn(1000);
+                    $(this).fadeIn(100);
                 });
-                computerPic.fadeOut(550, function () {
+                computerPic.fadeOut(100, 'linear',  function () {
                     $(this).attr("src", computerImages[i]);
-                    $(this).fadeIn(1000);
+                    $(this).fadeIn(100);
                 });
-            }, 5000);
-        },4000);
+            }, 1000);
+        },1500);
     }
  })
