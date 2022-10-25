@@ -73,10 +73,10 @@ $(document).ready(function(){
 
         if (playerPoints === 5 || computerPoints === 5) {
             console.log("winner!!!")
-            // show up pop here
-            $("#dialog").dialog({
-                modal: true
-            });
+            // show up modal here
+            $('#modal').css({"display": "block"})
+            // close modal here
+            $('#restart').css({"display": "none"})
             location.reload(true);
         }
     }
