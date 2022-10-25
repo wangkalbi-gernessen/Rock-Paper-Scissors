@@ -111,10 +111,10 @@ $(document).ready(function(){
     // Stop animation and show player's draw
     function showPlayerDraw(playerSelection, computerSelection) {
         playerPic.attr('src', `../images/${playerSelection}.svg`);
-        let computerPic = $('#computer').find('img');
         computerPic.attr('src', `../images/${computerSelection}.svg`);
         
         clearInterval(playerInterval)
+
         setTimeout(function() {
             playerInterval = setInterval(function () {
                 i = (i + 1) % playerImages.length;

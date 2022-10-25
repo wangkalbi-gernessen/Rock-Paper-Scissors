@@ -10,6 +10,15 @@
     </script>
     <script src="../js/main.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    
+                }
+            }
+        }
+    </script>
 </head>
 <body>
     <div class=" bg-slate-200 p-5">
@@ -35,15 +44,15 @@
             <div id="score" ></div>
             <div id="message" class="pt-4"></div>
 
-            <div class="text-center text-2xl pt-4">Select one!</div>
+            <div class="text-center text-2xl py-4">Select one!</div>
             <!-- Select rock, paper or scissors -->
-            <div class="flex justify-between py-4">
+            <div class="flex justify-evenly py-4 gap-x-6">
                 <!-- Rock button -->
-                <button class="ring-offset-3 ring-offset-black ring-4 p-3  cursor-pointer"><img src="../images/rock.svg" alt="Rock" class="w-12 h-12"></button>
+                <button class="outline outline-3 outline-cyan-500/50 outline-offset-4 p-3  cursor-pointer rounded-full border-2 bg-gray-300 hover:bg-gray-200"><img src="../images/rock.svg" alt="Rock" class="w-12 h-12"></button>
                 <!-- Paper button -->
-                <button class="border-solid border-2 border-indigo-600 rounded-full p-3  cursor-pointer"><img src="../images/paper.svg" alt="Paper" class="w-12 h-12"></button>
+                <button class="outline outline-3 outline-cyan-500/50 outline-offset-4 p-3  cursor-pointer rounded-full border-2 bg-gray-300 hover:bg-gray-200"><img src="../images/paper.svg" alt="Paper" class="w-12 h-12"></button>
                 <!-- Scissors button -->
-                <button class="border-solid border-2 border-indigo-600 rounded-full p-3  cursor-pointer"><img src="../images/scissors.svg" alt="Scissors" class="w-12 h-12"></button>
+                <button class="outline outline-3 outline-cyan-500/50 outline-offset-4 p-3  cursor-pointer rounded-full border-2 bg-gray-300 hover:bg-gray-200"><img src="../images/scissors.svg" alt="Scissors" class="w-12 h-12"></button>
             </div>
             <!-- <div id="dialog">
                 <p>You are win</p>
