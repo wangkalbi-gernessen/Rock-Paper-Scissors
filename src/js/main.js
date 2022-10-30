@@ -2,24 +2,26 @@ $(document).ready(function(){
     let playerInterval;
     let playerPoints = 0
     let computerPoints = 0
+    let modalOpened = false;
     
     // FadeIn and FadeOut animation of images for player and computer on screen
     let playerPic = $('#player').find('img');
     let computerPic = $('#computer').find('img');
     let playerImages = [
-        '../images/rock.svg',
-        '../images/paper.svg',
-        '../images/scissors.svg',
+        '../images/rock.png',
+        '../images/paper.png',
+        '../images/scissors.png',
     ];
     let computerImages = [
-        '../images/scissors.svg',
-        '../images/rock.svg',
-        '../images/paper.svg',
+        '../images/scissors.png',
+        '../images/rock.png',
+        '../images/paper.png',
     ];
 
     let i = 0;
     let v = 0;
     playerInterval = setInterval(function () {
+        $('button').prop('disabled', false)
         i = (i + 1) % playerImages.length;
         v = (v + 1) % computerImages.length;
         playerPic.fadeOut(100, 'linear', function () {
@@ -72,12 +74,25 @@ $(document).ready(function(){
         }
 
         if (playerPoints === 5 || computerPoints === 5) {
-            console.log("winner!!!")
-            // show up modal here
-            $('#modal').css({"display": "block"})
-            // close modal here
-            $('#restart').css({"display": "none"})
-            location.reload(true);
+            modalOpened = true
+            setTimeout(function() {
+                // show up modal here
+                if (modalOpened) {
+                    clearInterval(playerInterval)
+                    $('#modal').css({"display": "block"})
+                    if (playerPoints === 5) {
+                        $('#winner').text("You are winner!!")
+                    } else {
+                        $('#winner').text("You lost the game...")
+                    }
+                    $('#restart').click(function() {
+                        modalOpened = false;
+                        // close modal here
+                        $('#modal').css({"display": "none"})
+                        location.reload(true);
+                    })
+                } 
+            }, 1000)
         }
     }
 
@@ -110,13 +125,22 @@ $(document).ready(function(){
 
     // Stop animation and show player's draw
     function showPlayerDraw(playerSelection, computerSelection) {
-        playerPic.attr('src', `../images/${playerSelection}.svg`);
-        computerPic.attr('src', `../images/${computerSelection}.svg`);
+        playerPic.attr('src', `../images/${playerSelection}.png`);
+        computerPic.attr('src', `../images/${computerSelection}.png`);
         
+        $('button').prop("disabled", true).css({"cursor": "not-allowed"}),
+        // $('button').hover(function(){
+        //     $(this).css({"background":"#d1d5db"})
+        // }),
         clearInterval(playerInterval)
+
 
         setTimeout(function() {
             playerInterval = setInterval(function () {
+                $('button').prop('disabled', false).css({"cursor": "pointer"}),
+                // $('button').hover(function(){
+                //     $(this).css({"background":"#e5e7eb"})
+                // }),
                 i = (i + 1) % playerImages.length;
                 v = (v + 1) % computerImages.length;
                 playerPic.fadeOut(100, 'linear', function () {
@@ -128,6 +152,6 @@ $(document).ready(function(){
                     $(this).fadeIn(100);
                 });
             }, 1000);
-        },1500);
+        },2000);
     }
  })
