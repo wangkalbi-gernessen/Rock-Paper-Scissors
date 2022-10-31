@@ -61,7 +61,7 @@ $(document).ready(function(){
             computerSelection = "Scissors" 
         }
 
-        showPlayerDraw(playerSelection, computerSelection)
+        // showPlayerDraw(playerSelection, computerSelection)
 
         let result = checkWinner(playerSelection, computerSelection)
         console.log(result)
@@ -79,7 +79,7 @@ $(document).ready(function(){
                 // show up modal here
                 if (modalOpened) {
                     clearInterval(playerInterval)
-                    $('#modal').css({"display": "block"})
+                    $('#modal').css({"display":"block"});
                     if (playerPoints === 5) {
                         $('#winner').text("You are winner!!")
                     } else {
@@ -93,6 +93,8 @@ $(document).ready(function(){
                     })
                 } 
             }, 1000)
+        } else {
+            showPlayerDraw(playerSelection, computerSelection)
         }
     }
 
@@ -152,6 +154,6 @@ $(document).ready(function(){
                     $(this).fadeIn(100);
                 });
             }, 1000);
-        },2000);
+        },1500);
     }
  })
