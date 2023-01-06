@@ -1,1 +1,0 @@
-<?php include_once("./src/html/main.html") ?>
