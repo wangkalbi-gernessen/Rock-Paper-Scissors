@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Rock Paper Scissors</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <script src="./main.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {},
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <div class="bg-slate-200 p-5">
+      <div
+        class="container mx-auto p-5 bg-white rounded-lg min-h-[100vh] text-center z-0"
+      >
+        <!-- App title -->
+        <div class="font-[700] text-[6vw] font-mono mb-4">
+          Rock Paper Scissors
+        </div>
+        <!-- Score board -->
+        <div class="flex font-bold text-xl py-4 leading-loose text-[4vw]">
+          <div class="basis-1/2 bg-gray-100">You</div>
+          <div class="basis-1/4 bg-black text-white">
+            <span id="playScore">0</span> - <span id="computerScore">0</span>
+          </div>
+          <div class="basis-1/2 bg-gray-100">Computer</div>
+        </div>
+        <div
+          id="match_area"
+          class="flex flex-row py-4 justify-evenly font-bold text-xl"
+        >
+          <!-- Player  -->
+          <div id="player" class="basis-1/2">
+            <img src="./rock.png" alt="" class="object-cover opacity-50" />
+          </div>
+          <!-- Computer -->
+          <div id="computer" class="basis-1/2">
+            <img src="./scissors.png" alt="" class="object-cover opacity-50" />
+          </div>
+        </div>
+        <div id="score"></div>
+        <div id="message" class="pt-4"></div>
+
+        <div class="text-center text-[6vw] py-4 font-sans">Select one!</div>
+        <!-- Select rock, paper or scissors -->
+        <div class="flex justify-evenly py-4 gap-x-6">
+          <!-- Rock button -->
+          <button
+            class="outline outline-3 outline-cyan-500/50 outline-offset-4 p-3 cursor-pointer rounded-full border-2 bg-gray-300 hover:bg-gray-200"
+          >
+            <img src="./rock.png" alt="Rock" class="w-12 h-12" />
+          </button>
+          <!-- Paper button -->
+          <button
+            class="outline outline-3 outline-cyan-500/50 outline-offset-4 p-3 cursor-pointer rounded-full border-2 bg-gray-300 hover:bg-gray-200"
+          >
+            <img src="./paper.png" alt="Paper" class="w-12 h-12" />
+          </button>
+          <!-- Scissors button -->
+          <button
+            class="outline outline-3 outline-cyan-500/50 outline-offset-4 p-3 cursor-pointer rounded-full border-2 bg-gray-300 hover:bg-gray-200"
+          >
+            <img src="./scissors.png" alt="Scissors" class="w-12 h-12" />
+          </button>
+        </div>
+        <!-- show up modal when a winner is decided -->
+        <div
+          id="modal"
+          class="hidden fixed z-10 left-0 top-0 w-full h-full overflow-auto bg-black opacity-95"
+        >
+          <div
+            id="modal-content"
+            class="bg-white mx-auto my-[50%] p-3 border w-4/5 z-20 rounded-lg"
+          >
+            <header class="font-bold text-[7vw]">The end of the game!!</header>
+            <p id="winner" class="pt-5 text-[5vw] font-[400] font-serif"></p>
+            <div class="flex justify-center py-5">
+              <input
+                type="button"
+                id="restart"
+                class="cursor-pointer rounded-full bg-indigo-500 hover:bg-indigo-400 py-1 px-5 text-[5vw] text-white"
+                value="Restart"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
